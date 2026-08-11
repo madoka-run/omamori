@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  anxiety_level: 1
+  started_at: 2026-08-10 02:33:59
+
+two:
+  anxiety_level: 1
+  started_at: 2026-08-10 02:33:59
