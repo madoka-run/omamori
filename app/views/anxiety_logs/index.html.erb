@@ -1,0 +1,29 @@
+<h1>不安ログ履歴</h1>
+
+<table>
+    <thread>
+        <tr>
+            <th>日付</th>
+            <th>不安レベル</th>
+            <th>落ち着くまでの時間</th>
+        </th>
+    </thread>
+    <tbody>
+        <% @anxiety_logs.each do |anxiety_log| %>
+            <tr>
+                <td><%= anxiety_log.started_at.strftime("%Y/%m/%d") %></td>
+                <td><%= anxiety_log.started_at.strftime("%H:%M") %></td>
+                <td><%= anxiety_log.anxiety_level %></td>
+                <td>
+                    <% if anxiety_log.duration_in_minutes %>
+                        <%= anxiety_log.duration_in_minutes %>分
+                    <% else %>
+                    記録中
+                    <% end %>
+                </td>
+            </tr>
+        <% end%>
+    </tbody>
+</table>
+
+<%= link_to "トップに戻る", root_path %>

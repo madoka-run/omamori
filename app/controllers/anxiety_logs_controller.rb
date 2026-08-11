@@ -29,4 +29,9 @@ class AnxietyLogsController < ApplicationController
   def suggestions
     @anxiety_log = AnxietyLog.find(params[:id])
   end
+
+  def index
+    @anxiety_logs = AnxietyLog.order(started_at: :desc)
+  end
+  
 end
