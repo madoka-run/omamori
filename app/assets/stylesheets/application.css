@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.anxiety-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.anxiety-buttons form button {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: #4a90d9;
+    color: white;
+    cursor:pointer;
+
+}
+
+[data-breathing-target="flowers"]{
+    white-space: pre-line;
+}
+
+[data-breathing-target="flowers"] {
+    white-space: pre-line;
+    min-height: 80px;
