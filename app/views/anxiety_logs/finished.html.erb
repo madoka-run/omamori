@@ -1,1 +1,12 @@
 <h1>今日も不安は終わりました</h1>
+
+<p>不安レベル: <%= @anxiety_log.anxiety_level %></p>
+<p>時間: <%= @anxiety_log.duration_in_minutes %> 分</p>
+
+<p>このログを記録しますか？</p>
+<div>
+    <%= link_to "新規会員登録", "#" %>
+    <%= link_to "ログイン", "#" %>
+</div> 
+
+<%= link_to "トップに戻る", root_path %>
