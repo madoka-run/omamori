@@ -1,13 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["phase", "flowers", "startButton"]
-    static values = {inhale: Number, hold: Number, exhale: Number}
+    static targets = ["phase", "startButton"]
+    static values = {inhale: Number, hold: Number, exhale: Number }
 
-    MAX_CYCLES = 5
+    MAX_CYCLES = 4
 
     connect() {
-        this.flowerEmojis = ["🌸", "🌷", "🌹", "🌺", "🌻", "🌼"]
+        console.log("breathing controller connected")
 
         this.phases = [
             {type: "inhale", label: "秒吸って", seconds: this.inhaleValue },
@@ -16,55 +16,42 @@ export default class extends Controller {
         ]
 
         this.currentPhaseIndex = 0
-        this.currentFlowers = []
         this.cycleCount = 0
     }
 
-    start(){
-        if(this.timer)return
+    start() {
+        console.log("start clicked")
+
+        if (this.timer) return
 
         this.startButtonTarget.hidden = true
         this.startPhase()
     }
 
-    startPhase(){
+    startPhase() {
         const phase = this.phases[this.currentPhaseIndex]
         this.phaseTarget.textContent = `${phase.seconds}${phase.label}`
-
-        if (phase.type === "inhale") {
-            this.currentFlowers = []
-            this.flowersTarget.textContent = ""
-        }    
 
         let count = 0
 
         this.timer = setInterval(() => {
             count++
 
-            if(phase.type === "inhale"){
-                this.currentFlowers.push(this.flowerEmojis[count-1])
-                this.flowersTarget.textContent = this.currentFlowers.join("")
-            } else if (phase.type === "exhale"){
-                this.currentFlowers.pop()
-                this.flowersTarget.textContent = this.currentFlowers.join("")
-            } else if (phase.type === "hold") {
-                this.flowersTarget.textContent = this.currentFlowers.join("") + "\n" + "🫧".repeat(count)
-            }
-    
-            if(count === phase.seconds) {
+            if (count === phase.seconds) {
                 clearInterval(this.timer)
                 this.goToNextPhase()
             }
-        },1000)
+        }, 1000)
     }
 
     goToNextPhase() {
         const isLastPhaseOfCycle = this.currentPhaseIndex === this.phases.length - 1
-        if (isLastPhaseOfCycle){
+
+        if (isLastPhaseOfCycle) {
             this.cycleCount++
         }
 
-        if(this.cycleCount >= this.MAX_CYCLES) {
+        if (this.cycleCount >= this.MAX_CYCLES) {
             this.finish()
             return
         }
@@ -74,7 +61,8 @@ export default class extends Controller {
     }
 
     finish() {
-        this.phaseTarget.textContent = "呼吸法が終わりました"
-        this.flowersTarget.textContent = ""
+        this.phaseTarget.textContent = "呼吸法が終わりました"
     }
+
+    
 }

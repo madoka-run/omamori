@@ -1,10 +1,17 @@
 <h1><%= @breathing[:name] %></h1>
 
+<div class="flower-test" style="position: relative; width: 200px; height: 100px; margin: 100px auto;">
+  <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(0deg);">
+  <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(72deg);">
+  <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(144deg);">
+  <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(216deg);">
+  <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(288deg);">
+</div>
+
 <div data-controller="breathing"
      data-breathing-inhale-value="<%= @breathing[:inhale] %>"
      data-breathing-hold-value="<%= @breathing[:hold] %>"
      data-breathing-exhale-value="<%= @breathing[:exhale] %>">
     <button data-action="click->breathing#start" data-breathing-target="startButton">始める</button>
-     <p data-breathing-target="phase"></p>
-    <p data-breathing-target="flowers"></p>
+    <p data-breathing-target="phase"></p>
 </div>
