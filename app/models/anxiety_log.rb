@@ -5,4 +5,8 @@ class AnxietyLog < ApplicationRecord
         ((ended_at - started_at)/60).round
     end
 
+    def elapsed_minutes
+        ((Time.current - started_at) / 60).round
+    end
+
 end
