@@ -1,0 +1,10 @@
+<h1><%= @breathing[:name] %></h1>
+
+<div data-controller="breathing"
+     data-breathing-inhale-value="<%= @breathing[:inhale] %>"
+     data-breathing-hold-value="<%= @breathing[:hold] %>"
+     data-breathing-exhale-value="<%= @breathing[:exhale] %>">
+    <button data-action="click->breathing#start" data-breathing-target="startButton">始める</button>
+     <p data-breathing-target="phase"></p>
+    <p data-breathing-target="flowers"></p>
+</div>
