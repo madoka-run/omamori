@@ -1,5 +1,6 @@
 <h1>不安は落ち着きましたか？</h1>
 
 <div>
-    <%= button_to "はい", anxiety_log_path(@anxiety_log), method: :patch %>
-    <%= button_to "まだ不安", anxiety_log_path(@anxiety_log), method: :patch %>
+  <%= button_to "はい", anxiety_log_path(@anxiety_log), method: :patch, params: { status: "resolved" } %>
+  <%= button_to "まだ不安", anxiety_log_path(@anxiety_log), method: :patch, params: { status: "still_anxious" } %>
+</div>
