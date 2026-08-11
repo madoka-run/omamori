@@ -11,7 +11,8 @@
 <div data-controller="breathing"
      data-breathing-inhale-value="<%= @breathing[:inhale] %>"
      data-breathing-hold-value="<%= @breathing[:hold] %>"
-     data-breathing-exhale-value="<%= @breathing[:exhale] %>">
+     data-breathing-exhale-value="<%= @breathing[:exhale] %>"
+     data-breathing-anxiety-log-id-value="<%= params[:anxiety_log_id] %>">
     <button data-action="click->breathing#start" data-breathing-target="startButton">始める</button>
     <p data-breathing-target="phase"></p>
 </div>
