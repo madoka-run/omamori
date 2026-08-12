@@ -1,4 +1,6 @@
 class AnxietyLog < ApplicationRecord
+    belongs_to :user, optional: true
+    
     def duration_in_minutes
         return nil unless ended_at
 
