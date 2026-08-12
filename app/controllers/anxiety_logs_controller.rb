@@ -31,7 +31,16 @@ class AnxietyLogsController < ApplicationController
   end
 
   def index
-    @anxiety_logs = AnxietyLog.order(started_at: :desc)
+    if user_signed_in?
+      @anxiety_logs = current_user.anxiety_logs.order(started_at: :desc)
+    else
+      @anxiety_logs = AnxietyLog.where(user_id: nil).order(started_at: :desc)
+    end
   end
-  
+
+  def destroy
+    @anxiety_log = AnxietyLog.find(params[:id])
+    @anxiety_log.destroy
+    redirect_to anxiety_logs_path
+  end
 end
