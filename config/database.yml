@@ -29,7 +29,4 @@ test:
   database: omamori_test
 
 production:
-  <<: *default
-  database: omamori_production
-  username: omamori
-  password: <%= ENV["OMAMORI_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
