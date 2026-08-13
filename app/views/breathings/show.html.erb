@@ -1,3 +1,5 @@
+
+
 <h1><%= @breathing[:name] %></h1>
 <% total_seconds = (@breathing[:inhale] + @breathing[:hold] + @breathing[:exhale]) * @breathing[:cycles] %>
 <% total_minutes = total_seconds / 60 %>
@@ -40,4 +42,9 @@
       <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]), class: "choice-button" %>
       <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" }, class: "choice-button" %>
     </div>
+</div>
+
+<div class="breathing-nav">
+  <%= link_to "トップに戻る", root_path(anxiety_log_id: params[:anxiety_log_id]) %>
+  <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
 </div>
