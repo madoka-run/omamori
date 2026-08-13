@@ -2,6 +2,17 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  def create
+    super do |user|
+      if params[:anxiety_log_id].present?
+        anxiety_log = AnxietyLog.find_by(id: params[:anxiety_log_id])
+        anxiety_log&.update(user: user)
+      end
+    end  
+  end
+end
+
+ 
 
   # GET /resource/sign_in
   # def new
@@ -24,4 +35,3 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end
