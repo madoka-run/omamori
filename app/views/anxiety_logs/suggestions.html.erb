@@ -10,8 +10,6 @@
     <li>グラウンディング: 周りにある5つのものを目で見て確認してみましょう</li>
 </ul>
 
-<%= link_to "もう一度、呼吸法をやってみる", breathing_path("calming", anxiety_log_id: @anxiety_log.id) %>
+<%= button_to "もう一度、呼吸法をやってみる", breathing_path("calming"), method: :get, params: { anxiety_log_id: @anxiety_log.id} %>
 
-<%= link_to "不安が終わりそう", check_anxiety_log_path(@anxiety_log) %>
-
-<%= link_to "トップに戻る", root_path %>
+<%= button_to "記録を終了する", anxiety_log_path(@anxiety_log),method: :patch, params: { status: "resolved" }, data: { turbo_confirm:"本当に終了しますか？" } %>

@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["phase", "startButton"]
+    static targets = ["phase", "startButton", "choices"]
     static values = {inhale: Number, hold: Number, exhale: Number, anxietyLogId: String}
 
     MAX_CYCLES = 1
@@ -25,6 +25,13 @@ export default class extends Controller {
         if (this.timer) return
 
         this.startButtonTarget.hidden = true
+        this.startPhase()
+    }
+
+    restart() {
+        this.choicesTarget.hidden = true
+        this.currentPhaseIndex = 0
+        this.cycleCount = 0
         this.startPhase()
     }
 
@@ -62,10 +69,7 @@ export default class extends Controller {
 
     finish() {
         this.phaseTarget.textContent = "呼吸法が終わりました"
-
-        setTimeout (() => {
-            window.location.href = `/anxiety_logs/${this.anxietyLogIdValue}/check`
-        }, 2000)
+        this.choicesTarget.hidden = false
     }
 
     
