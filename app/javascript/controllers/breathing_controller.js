@@ -4,7 +4,7 @@ export default class extends Controller {
     static targets = ["phase", "startButton", "choices"]
     static values = {inhale: Number, hold: Number, exhale: Number, anxietyLogId: String}
 
-    MAX_CYCLES = 1
+    MAX_CYCLES = 5
 
     connect() {
         console.log("breathing controller connected")
