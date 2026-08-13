@@ -1,7 +1,10 @@
 <h1>次にできそうなこと</h1>
-<p data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-    (不安が始まってから<span data-elapsed-timer-target="minutes"></span>分経過しています)
-</p>
+<div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
+    <p data-elapsed-timer-target="display">
+        （不安が始まってから<span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過しています)
+    </p>
+    <button data-action="click->elapsed-timer#toggle">隠す/表示する</button>
+</div>
 
 <ul>
     <li>TIPP: 冷たい水で手を洗う、またはぬるめのシャワーを浴びる</li>
