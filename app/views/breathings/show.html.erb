@@ -5,7 +5,7 @@
 <p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
 
 <div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-  <button data-action="click->elapsed-timer#toggle">隠す/表示する</button>
+  <button data-action="click->elapsed-timer#toggle">経過時間を隠す/表示する</button>
   <p data-elapsed-timer-target="display">
     (不安が始まってから<span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過しています)
   </p>
@@ -35,8 +35,9 @@
     <p data-breathing-target="phase"></p>
 
     <div data-breathing-target="choices" hidden>
-      <button data-action="click->breathing#restart">もう一度やる</button>
-      <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
-      <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" } %>  
+      <button data-action="click->breathing#restart" class="choice-button">もう一度やる</button>
+      <br>
+      <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]), class: "choice-button" %>
+      <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" }, class: "choice-button" %>
     </div>
 </div>

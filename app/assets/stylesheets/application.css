@@ -22,7 +22,7 @@ body{
     margin: 0;
     background-color: #fdf1f3;
     color: #333333;
-    font-family: sans-serif;
+    font-family: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "BIZ UDGothic", sans-serif;
 }
 
 .container {
@@ -136,7 +136,8 @@ a:hover {
     background: linear-gradient(135deg, #8bc34a, #689f38);
 }
 
-button {
+button,
+input[type="submit"] {
     display: inline-block;
     padding: 8px 16px;
     margin: 4px 0;
@@ -148,12 +149,39 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover,
+input[type="submit"]:hover {
     background-color: #c3e9cf;
 }
+
 
 .omamori-bag {
     width: 140px;
     display: block;
     margin: 0 auto;
+}
+
+button[hidden] {
+    display: none;
+}
+
+.choice-button {
+    background: none;
+    background-color: #d9f2e0;
+    color: #2f5d3a;
+    font-size: 1rem;
+    font-weight: bold;
+    -webkit-text-stroke: 0.6px #2f5d3a;
+}
+
+
+.choice-button:hover {
+    background: none;
+    background-color: #c3e9cf;
+}
+
+.phase-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2f5d3a;
 }
