@@ -4,7 +4,8 @@ class BreathingsController < ApplicationController
       name: "落ち着く呼吸法",
       inhale: 4,
       hold: 4,
-      exhale: 4
+      exhale: 4,
+      cycles: 5
     }
   }.freeze
 
