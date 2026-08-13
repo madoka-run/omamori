@@ -11,5 +11,6 @@ class BreathingsController < ApplicationController
 
   def show
     @breathing = BREATHING_METHODS[params[:id]]
+    @anxiety_log = AnxietyLog.find(params[:anxiety_log_id])
   end
 end
