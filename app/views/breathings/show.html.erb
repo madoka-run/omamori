@@ -1,4 +1,8 @@
 <h1><%= @breathing[:name] %></h1>
+<% total_seconds = (@breathing[:inhale] + @breathing[:hold] + @breathing[:exhale]) * @breathing[:cycles] %>
+<% total_minutes = total_seconds / 60 %>
+
+<p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
 
 <div class="flower-test" style="position: relative; width: 200px; height: 100px; margin: 100px auto;">
   <img src="<%= asset_path('petal.png') %>" style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(0deg);">
