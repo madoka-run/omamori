@@ -36,7 +36,7 @@
 
     <div data-breathing-target="choices" hidden>
       <button data-action="click->breathing#restart">もう一度やる</button>
-      <%= button_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]), method: :get %>
+      <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
       <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" } %>  
     </div>
 </div>

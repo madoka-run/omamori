@@ -35,6 +35,6 @@
     </p>
 </div>
 
-<%= button_to "もう一度、呼吸法をやってみる", breathing_path("calming"), method: :get, params: { anxiety_log_id: @anxiety_log.id} %>
+<%= link_to "もう一度、呼吸法をやってみる", breathing_path("calming", anxiety_log_id: @anxiety_log.id) %>
 
 <%= button_to "記録を終了する", anxiety_log_path(@anxiety_log),method: :patch, params: { status: "resolved" }, data: { turbo_confirm:"本当に終了しますか？" } %>
