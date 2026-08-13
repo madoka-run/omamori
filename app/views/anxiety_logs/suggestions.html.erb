@@ -6,12 +6,34 @@
     <button data-action="click->elapsed-timer#toggle">隠す/表示する</button>
 </div>
 
-<ul>
-    <li>TIPP: 冷たい水で手を洗う、またはぬるめのシャワーを浴びる</li>
-    <li> よりそいホットラインに電話する（外部団体）<br>
-    <%= link_to "0120-279-338", "tel:0120279338" %>（２４時間・秘密厳守）</li>
-    <li>グラウンディング: 周りにある5つのものを目で見て確認してみましょう</li>
-</ul>
+<div data-controller="card">
+    <button data-action="click->card#toggle">TIPP(体温を下げる)</button>
+    <p data-card-target="detail" hidden>
+        冷たい水で手を洗う、またはぬるめのシャワーを浴びる
+    </p>
+</div>
+
+<div data-controller="card">
+    <button data-action="click->card#toggle">グラウンディング（意識を「今」に戻す）</button>
+    <div data-card-target="detail" hidden> 
+        <p>不安で頭がいっぱいになったとき、<br>五感を使って「今、ここ」に意識を戻す方法です。<br>順番に感じてみましょう。</p>
+        <ul>
+            <li>視覚：何が見えますか？</li>
+            <li>聴覚：どんな音が聞こえますか？</li>
+            <li>触覚：何が肌に触れていますか？</li>
+            <li>嗅覚：どんな匂いを感じていますか？</li>
+            <li>味覚：口の中にどんな味がありますか？</li>
+        </ul>
+    </div>
+</div>
+
+<div data-controller="card">
+    <button data-action="click->card#toggle">よりそいホットラインに電話</button>
+    <p data-card-target="detail" hidden> 
+        よりそいホットラインに電話する（外部団体）<br>
+        <%= link_to "0120-279-338", "tel:0120279338" %>（２４時間・秘密厳守）
+    </p>
+</div>
 
 <%= button_to "もう一度、呼吸法をやってみる", breathing_path("calming"), method: :get, params: { anxiety_log_id: @anxiety_log.id} %>
 
