@@ -185,3 +185,23 @@ button[hidden] {
     font-weight: bold;
     color: #2f5d3a;
 }
+
+.breathing-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.breathing-nav a {
+    background: none;
+    color: #7cb342;
+    font-size: 0.85rem;
+    padding: 4px 4px;
+    text-decoration: underline;
+}
+
+.breathing-nav a:hover {
+    background: none;
+    color: #558b2f;
+}

@@ -4,7 +4,11 @@
 <p>不安が来ても、いつか終わります。</p>
 <p>落ち着くまでの記録を始めますか？</p>
 
-<%= link_to "はじめる", new_anxiety_log_path %>
+<%= link_to "落ち着く呼吸法をはじめる", new_anxiety_log_path %>
+<% if params[:anxiety_log_id].present? %>
+    <br>
+    <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
+<% end %>
 <br>
 <%= link_to "過去の記録を見る", anxiety_logs_path %>
 <br>
