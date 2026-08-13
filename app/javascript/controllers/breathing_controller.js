@@ -10,10 +10,12 @@ export default class extends Controller {
         console.log("breathing controller connected")
 
         this.phases = [
-            {type: "inhale", label: "秒吸って", seconds: this.inhaleValue },
-            {type: "hold", label: "秒止めて", seconds: this.holdValue },
-            {type: "exhale", label: "秒吐いて", seconds: this.exhaleValue },
+            {type: "inhale", label: "秒吸って", icon: "↑", seconds: this.inhaleValue },
+            {type: "hold", label: "秒止めて", icon: "■", seconds: this.holdValue },
+            {type: "exhale", label: "秒吐いて", icon: "↓", seconds: this.exhaleValue },
         ]
+
+
 
         this.currentPhaseIndex = 0
         this.cycleCount = 0
@@ -37,7 +39,7 @@ export default class extends Controller {
 
     startPhase() {
         const phase = this.phases[this.currentPhaseIndex]
-        this.phaseTarget.textContent = `${phase.seconds}${phase.label}`
+        this.phaseTarget.innerHTML = `${phase.icon} <span class="phase-number">${phase.seconds}</span>${phase.label}`
 
         let count = 0
 

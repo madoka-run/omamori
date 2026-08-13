@@ -5,23 +5,23 @@
 <p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
 
 <div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-  <button data-action="click->elapsed-timer#toggle">隠す/表示する</button>
+  <button data-action="click->elapsed-timer#toggle">経過時間を隠す/表示する</button>
   <p data-elapsed-timer-target="display">
     (不安が始まってから<span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過しています)
   </p>
 </div>
 
-<div class="flower-test" style="position: relative; width: 200px; height: 100px; margin: 100px auto;">
-  <div style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(0deg);">
+<div class="flower-test" style="position: relative; width: 200px; height: 100px; margin: 100px auto 0px;">
+  <div style="position: absolute; top: -40px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(0deg);">
     <img src="<%= asset_path('petal.png') %>" style="width: 100%; display: block; animation: fade-leaf-1 6s linear infinite;">
   </div>
-  <div style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(90deg);">
+  <div style="position: absolute; top: -40px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(90deg);">
     <img src="<%= asset_path('petal.png') %>" style="width: 100%; display: block; animation: fade-leaf-2 6s linear infinite;">
   </div>
-  <div style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(180deg);">
+  <div style="position: absolute; top: -40px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(180deg);">
     <img src="<%= asset_path('petal.png') %>" style="width: 100%; display: block; animation: fade-leaf-3 6s linear infinite;">
   </div>
-  <div style="position: absolute; top: 48px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(270deg);">
+  <div style="position: absolute; top: -40px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(270deg);">
     <img src="<%= asset_path('petal.png') %>" style="width: 100%; display: block; animation: fade-leaf-4 6s linear infinite;">
   </div>
 </div>
@@ -35,8 +35,9 @@
     <p data-breathing-target="phase"></p>
 
     <div data-breathing-target="choices" hidden>
-      <button data-action="click->breathing#restart">もう一度やる</button>
-      <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
-      <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" } %>  
+      <button data-action="click->breathing#restart" class="choice-button">もう一度やる</button>
+      <br>
+      <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]), class: "choice-button" %>
+      <%= button_to "落ち着いた", anxiety_log_path(params[:anxiety_log_id]), method: :patch, params: { status: "resolved" }, class: "choice-button" %>
     </div>
 </div>
