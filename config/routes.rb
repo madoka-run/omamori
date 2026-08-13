@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :anxiety_logs do
     member do
-      get :check
       get :finished
       get :suggestions
     end

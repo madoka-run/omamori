@@ -7,10 +7,6 @@ class AnxietyLogsController < ApplicationController
     redirect_to breathing_path("calming", anxiety_log_id: anxiety_log.id)
   end
 
-  def check
-    @anxiety_log = AnxietyLog.find(params[:id])
-  end
-
   def update
     @anxiety_log = AnxietyLog.find(params[:id])
 
