@@ -1,32 +1,36 @@
 <h1>不安ログ履歴</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>日付</th>
-            <th>不安レベル</th>
-            <th>落ち着くまでの時間</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @anxiety_logs.each do |anxiety_log| %>
+<div class="table-wrapper">
+    <table>
+        <thead>
             <tr>
-                <td><%= anxiety_log.started_at.strftime("%Y/%m/%d") %></td>
-                <td><%= anxiety_log.started_at.strftime("%H:%M") %></td>
-                <td><%= anxiety_log.anxiety_level %></td>
-                <td>
-                    <% if anxiety_log.duration_in_minutes %>
-                        <%= anxiety_log.duration_in_minutes %>分
-                    <% else %>
-                    記録中
-                    <% end %>
-                </td>
-                <td>
-                    <%= button_to "削除", anxiety_log_path(anxiety_log), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } %>
-                </td>
+                <th>日付</th>
+                <th>時刻</th>
+                <th>不安感</th>
+                <th>時間</th>
+                <th></th>
             </tr>
-        <% end%>
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            <% @anxiety_logs.each do |anxiety_log| %>
+                <tr>
+                    <td><%= anxiety_log.started_at.strftime("%Y/%m/%d") %></td>
+                    <td><%= anxiety_log.started_at.strftime("%H:%M") %></td>
+                    <td><%= anxiety_log.anxiety_level %></td>
+                    <td>
+                        <% if anxiety_log.duration_in_minutes %>
+                            <%= anxiety_log.duration_in_minutes %>分
+                        <% else %>
+                        記録中
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= button_to "削除", anxiety_log_path(anxiety_log), method: :delete, data: { turbo_confirm: "本当に削除しますか？" } %>
+                    </td>
+                </tr>
+            <% end%>
+        </tbody>
+    </table>
+</div>
 
 <%= link_to "トップに戻る", root_path %>
