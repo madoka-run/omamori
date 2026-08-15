@@ -14,4 +14,8 @@ before_action :set_cache_headers
     def set_cache_headers
         response.headers["Cache-Control"] = "no-store"
     end
+
+    def current_device_token
+        cookies.permanent[:device_token] ||= SecureRandom.uuid
+    end
 end
