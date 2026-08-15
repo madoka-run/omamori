@@ -4,8 +4,13 @@ class AnxietyLogsController < ApplicationController
 
   def create
     anxiety_log = AnxietyLog.create(anxiety_level: params[:anxiety_level], started_at: Time.current, user_id: current_user&.id)
-    redirect_to breathing_path("calming", anxiety_log_id: anxiety_log.id)
+    if params[:next] == "suggestions"
+      redirect_to suggestions_anxiety_log_path(anxiety_log)
+    else
+      redirect_to breathing_path("calming", anxiety_log_id: anxiety_log.id)
+    end
   end
+
 
 
   def update
