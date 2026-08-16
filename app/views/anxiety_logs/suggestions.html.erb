@@ -1,43 +1,43 @@
-<h1>次にできそうなこと</h1>
-<div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-    <p data-elapsed-timer-target="display">
-        <span data-elapsed-timer-target="hoursWrapper" hidden><span data-elapsed-timer-target="hours"></span>時間</span><span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過
-    </p>
+<div class="card-grid" data-controller="card">
+    <div data-card-target="backdrop" data-action="click->card#closeAll" hidden></div>
 
-    <button data-action="click->elapsed-timer#toggle" class="text-link">⏰隠す/表示</button>
-</div>
-
-<div data-controller="card">
-    <button data-action="click->card#toggle">TIPP(体温を下げる)</button>
-    <p data-card-target="detail" hidden>
-        冷たい水で手を洗う、またはぬるめのシャワーを浴びる
-    </p>
-</div>
-
-<div data-controller="card">
-    <button data-action="click->card#toggle">グラウンディング（意識を「今」に戻す）</button>
-    <div data-card-target="detail" class="grounding-detail" hidden> 
-        <p>不安で頭がいっぱいになったとき、<br>五感を使って「今、ここ」に意識を戻す方法です。<br>順番に感じてみましょう。</p>
-        <ul>
-            <li>視覚：何が見えますか？</li>
-            <li>聴覚：どんな音が聞こえますか？</li>
-            <li>触覚：何が肌に触れていますか？</li>
-            <li>嗅覚：どんな匂いを感じていますか？</li>
-            <li>味覚：口の中にどんな味がありますか？</li>
-        </ul>
+    <div class="card">
+        <button data-action="click->card#toggle">TIPP(体温を下げる)</button>
+        <p data-card-target="detail" hidden>
+            冷たい水で手を洗う、またはぬるめのシャワーを浴びる
+            <br>
+            <button data-action="click->card#closeAll" class="text-link">閉じる</button>
+        </p>
     </div>
+
+    <div class="card">
+        <button data-action="click->card#toggle">グラウンディング（意識を「今」に戻す）</button>
+        <div data-card-target="detail" class="grounding-detail" hidden> 
+            <p>不安で頭がいっぱいになったとき、<br>五感を使って「今、ここ」に意識を戻す方法です。<br>順番に感じてみましょう。</p>
+            <ul>
+                <li>視覚：何が見えますか？5つ見つけましょう</li>
+                <li>触覚：何が肌に触れていますか？4つ意識しましょう</li>
+                <li>聴覚：どんな音が聞こえますか？3つ見つけましょう</li>
+                <li>嗅覚：どんな匂いを感じていますか？2つ感じましょう</li>
+                <li>味覚：口の中にどんな味がありますか？1つ感じましょう</li>
+            </ul>
+            <button data-action="click->card#closeAll" class="text-link">閉じる</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <button data-action="click->card#toggle">よりそいホットラインに電話</button>
+        <p data-card-target="detail" hidden> 
+            よりそいホットラインに電話する（外部団体）<br>
+            <%= link_to "0120-279-338", "tel:0120279338" %>（２４時間・秘密厳守）
+            <br>
+            <button data-action="click->card#closeAll" class="text-link">閉じる</button>
+        </p>
+    </div>
+
+    <%= link_to "呼吸法に戻る", breathing_path("calming", anxiety_log_id: @anxiety_log.id), class: "card-link" %>
 </div>
 
-
-<div data-controller="card">
-    <button data-action="click->card#toggle">よりそいホットラインに電話</button>
-    <p data-card-target="detail" hidden> 
-        よりそいホットラインに電話する（外部団体）<br>
-        <%= link_to "0120-279-338", "tel:0120279338" %>（２４時間・秘密厳守）
-    </p>
-</div>
-
-<%= link_to "もう一度、呼吸法をやってみる", breathing_path("calming", anxiety_log_id: @anxiety_log.id) %>
 
 <%= button_to "記録を終了する", anxiety_log_path(@anxiety_log), method: :patch, params: { status: "resolved" }, data: { turbo_confirm: "本当に終了しますか？" } %>
 
