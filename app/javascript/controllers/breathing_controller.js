@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["phase", "startButton", "choices"]
+    static targets = ["phase", "startButton", "choices", "leaf"]
     static values = {inhale: Number, hold: Number, exhale: Number, anxietyLogId: String}
 
     MAX_CYCLES = 5
@@ -14,8 +14,6 @@ export default class extends Controller {
             {type: "hold", label: "秒止めて", icon: "■", seconds: this.holdValue },
             {type: "exhale", label: "秒吐いて", icon: "↓", seconds: this.exhaleValue },
         ]
-
-
 
         this.currentPhaseIndex = 0
         this.cycleCount = 0
@@ -37,9 +35,19 @@ export default class extends Controller {
         this.startPhase()
     }
 
-    startPhase() {
+        startPhase() {
         const phase = this.phases[this.currentPhaseIndex]
         this.phaseTarget.innerHTML = `${phase.icon} <span class="phase-number">${phase.seconds}</span>${phase.label}`
+
+        if (phase.type === "inhale" || phase.type === "exhale") {
+            const staggerDuration = phase.seconds / this.leafTargets.length
+
+            this.leafTargets.forEach((leaf, index) => {
+                leaf.style.transitionDuration = `${staggerDuration}s`
+                leaf.style.transitionDelay = `${staggerDuration * index}s`
+                leaf.style.opacity = phase.type === "inhale" ? 1 : 0
+            })
+        }
 
         let count = 0
 
@@ -52,6 +60,7 @@ export default class extends Controller {
             }
         }, 1000)
     }
+
 
     goToNextPhase() {
         const isLastPhaseOfCycle = this.currentPhaseIndex === this.phases.length - 1
@@ -70,9 +79,7 @@ export default class extends Controller {
     }
 
     finish() {
-        this.phaseTarget.textContent = "呼吸法が終わりました"
+        this.phaseTarget.textContent = "呼吸法が終わりました"
         this.choicesTarget.hidden = false
     }
-
-    
 }

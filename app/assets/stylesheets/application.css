@@ -72,36 +72,11 @@ h1 {
     min-height: 80px;
 }
 
-@keyframes fade-leaf-1 {
-    0% { opacity: 0; }
-    16.67% { opacity: 1; }    /* 0秒〜1秒でフェードイン */
-    83.33% { opacity: 1; }    /* 見えたままキープ */
-    100% { opacity: 0; }      /* 5秒〜6秒でフェードアウト */
+.flower-test img {
+    opacity: 0;
+    transition: opacity linear;
 }
 
-@keyframes fade-leaf-2 {
-    0% { opacity: 0; }
-    16.67% { opacity: 0; }    /* 1秒までは、まだ透明 */
-    33.33% { opacity: 1; }    /* 1秒〜2秒でフェードイン */
-    83.33% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes fade-leaf-3 {
-    0% { opacity: 0; }
-    33.33% { opacity: 0; }    /* 2秒までは、まだ透明 */
-    50% { opacity: 1; }       /* 2秒〜3秒でフェードイン */
-    83.33% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes fade-leaf-4 {
-    0% { opacity: 0; }
-    50% { opacity: 0; }       /* 3秒までは、まだ透明 */
-    66.67% { opacity: 1; }    /* 3秒〜4秒でフェードイン */
-    83.33% { opacity: 1; }
-    100% { opacity: 0; }
-}
 
 [data-controller="card"] {
     background-color: #ffffff;
@@ -250,3 +225,10 @@ th, td {
 [data-controller="elapsed-timer"] p {
     margin: 0;
 }
+
+[data-breathing-target="phase"] {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2f5d3a;
+}
+
