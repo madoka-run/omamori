@@ -228,6 +228,11 @@ th, td {
     font-size: 0.9rem;
 }
 
+.table-wrapper button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+}
+
 .grounding-detail {
     text-align: left;
 }
