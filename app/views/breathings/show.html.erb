@@ -4,12 +4,6 @@
 <% total_seconds = (@breathing[:inhale] + @breathing[:hold] + @breathing[:exhale]) * @breathing[:cycles] %>
 <% total_minutes = total_seconds / 60 %>
 
-<p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
-
-<div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-  <p data-elapsed-timer-target="display">
-    <span data-elapsed-timer-target="hoursWrapper" hidden><span data-elapsed-timer-target="hours"></span>時間</span><span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過
-  </p>
   <button data-action="click->elapsed-timer#toggle" class="text-link">⏰隠す/表示</button>
 </div>
 
