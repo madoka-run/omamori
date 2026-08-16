@@ -18,7 +18,7 @@
             <tbody>
                 <% @anxiety_logs.each do |anxiety_log| %>
                     <tr>
-                        <td><%= anxiety_log.started_at.strftime("%Y/%m/%d") %></td>
+                        <td><%= anxiety_log.started_at.strftime("%m/%d") %></td>
                         <td><%= anxiety_log.started_at.strftime("%H:%M") %></td>
                         <td><%= anxiety_log.anxiety_level %></td>
                         <td>
