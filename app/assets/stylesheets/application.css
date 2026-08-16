@@ -331,3 +331,53 @@ th, td {
 .breathing-phase-exhale {
     color: #d17a3f;
 }
+
+#error_explanation {
+    background-color: #fff0f0;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    text-align: left;
+}
+
+#error_explanation h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c0392b;
+    margin: 0 0 8px;
+}
+
+#error_explanation ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+#error_explanation li {
+    font-size: 0.9rem;
+    color: #c0392b;
+}
+
+.notice, .alert {
+    display: block;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 12px auto;
+    max-width: 480px;
+    font-weight: bold;
+}
+
+.notice {
+    background-color: #eaf7ec;
+    color: #2f5d3a;
+}
+
+.alert {
+    background-color: #fff0f0;
+    color: #c0392b;
+}
+
+.notice:empty, .alert:empty {
+    display: none;
+}
+
