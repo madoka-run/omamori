@@ -37,4 +37,6 @@
 
 <%= link_to "もう一度、呼吸法をやってみる", breathing_path("calming", anxiety_log_id: @anxiety_log.id) %>
 
-<%= button_to "記録を終了する", anxiety_log_path(@anxiety_log),method: :patch, params: { status: "resolved" }, data: { turbo_confirm:"本当に終了しますか？" } %>
+<%= button_to "記録を終了する", anxiety_log_path(@anxiety_log), method: :patch, params: { status: "resolved" }, data: { turbo_confirm: "本当に終了しますか？" } %>
+
+<%= button_to "今の記録をやめる", anxiety_log_path(@anxiety_log), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？(元に戻せません)" } %>
