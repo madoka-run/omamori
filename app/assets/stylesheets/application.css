@@ -16,14 +16,15 @@
 body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 32px 0;
     background-color: #fdf1f3;
     color: #333333;
     font-family: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "BIZ UDGothic", sans-serif;
 }
+
 
 
 .container {
