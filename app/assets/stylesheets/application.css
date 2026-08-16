@@ -283,7 +283,8 @@ th, td {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     font-weight: bold;
     text-decoration: none;
-    min-height: 120px;
+    min-height: 115px;
+    box-sizing: border-box;
 }
 
 .card-link:hover {
