@@ -157,12 +157,6 @@ button[hidden] {
     background-color: #c3e9cf;
 }
 
-.phase-number {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #2f5d3a;
-}
-
 .breathing-nav {
     display: flex;
     justify-content: center;
@@ -314,3 +308,19 @@ th, td {
     text-align: left;
 }
 
+.phase-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.breathing-phase-inhale {
+    color: #2f6fb3;
+}
+
+.breathing-phase-hold {
+    color: #6b6b6b;
+}
+
+.breathing-phase-exhale {
+    color: #d17a3f;
+}
