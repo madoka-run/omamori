@@ -5,11 +5,10 @@
 
 <%= link_to "過去の記録を見る", anxiety_logs_path %>
 <br>
-<%= link_to "トップに戻る", root_path %>
+<%= link_to "トップに戻る", root_path, class: "text-link" %>
 
 <% unless user_signed_in? %>
-    <p class="hint-text">他の端末でもこの記録を見たい場合は、ログインしておくと安心です</p>
-    <%= link_to "新規会員登録", new_user_registration_path(anxiety_log_id: @anxiety_log.id) %>
-    <br>
-    <%= link_to "ログイン", new_user_session_path(anxiety_log_id: @anxiety_log.id) %>
+    <p class="hint-text">他の端末でもこの記録を見たい場合は、<br>ログインしておくと安心です</p>
+    <%= link_to "新規会員登録", new_user_registration_path(anxiety_log_id: @anxiety_log.id), class: "text-link" %>
+    <%= link_to "ログイン", new_user_session_path(anxiety_log_id: @anxiety_log.id), class: "text-link" %>
 <% end %>

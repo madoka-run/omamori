@@ -7,11 +7,12 @@
 <p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
 
 <div data-controller="elapsed-timer" data-elapsed-timer-started-at-value="<%= @anxiety_log.started_at.iso8601 %>">
-  <button data-action="click->elapsed-timer#toggle">経過時間を隠す/表示する</button>
   <p data-elapsed-timer-target="display">
-    (不安が始まってから<span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過しています)
+    <span data-elapsed-timer-target="hoursWrapper" hidden><span data-elapsed-timer-target="hours"></span>時間</span><span data-elapsed-timer-target="minutes"></span>分<span data-elapsed-timer-target="seconds"></span>秒経過
   </p>
+  <button data-action="click->elapsed-timer#toggle" class="text-link">⏰隠す/表示</button>
 </div>
+
 
 <div class="flower-test" style="position: relative; width: 200px; height: 100px; margin: 100px auto 0px;">
   <div style="position: absolute; top: -40px; left: 70px; width: 60px; transform-origin: 50% 88%; transform: rotate(0deg);">
@@ -45,7 +46,8 @@
 </div>
 
 <div class="breathing-nav">
-  <%= link_to "トップに戻る", root_path(anxiety_log_id: params[:anxiety_log_id]) %>
-  <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
-  <%= button_to "今の記録をやめる", anxiety_log_path(@anxiety_log), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？(元に戻せません)" } %>
-</div>
+  <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]), class: "text-link" %>
+  <%= button_to "今の記録をやめる", anxiety_log_path(@anxiety_log), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？(元に戻せません)" }, class: "text-link" %>
+  </div>
+<%= link_to "トップに戻る", root_path(anxiety_log_id: params[:anxiety_log_id]), class: "text-link" %>
+
