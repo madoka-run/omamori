@@ -125,4 +125,5 @@
 - **`git status`をこまめに確認**:意図しないファイル(`MAX_CYCLES`の一時的な変更値など)が紛れ込んでいないか、コミット前に必ず確認する
 - **CSSの`position: absolute`や負の`margin`**:見えない要素が、他の要素の上に重なってクリックを妨害することがある(桜の花びらCSSで実際に発生)
 - **ブラウザキャッシュ**:JS/CSSの変更が反映されない時は、まず強制リロード(Cmd+Shift+R)を試す
+- **`public/assets`が残っていると、CSS/JSの編集が反映されない**:開発用コンテナの中で`bin/rails assets:precompile`を実行すると、`public/assets`にビルド済みファイルが生成される。`docker-compose.yml`は`.:/rails`でホスト側とコンテナを繋いでいるため、このフォルダはコンテナを再起動してもホスト側にそのまま残り続け、Railsは開発中でもこのファイルを最優先で配信してしまう(ハードリロードしても直らない)。`.gitignore`済みなので消しても安全:`docker compose exec web bin/rails assets:clobber`で解消。本番ビルドを試したい時は、この開発コンテナの中で`assets:precompile`を直接実行せず、`docker compose build`でイメージごとビルドして確認する
 - **HTMLタグの閉じ忘れ**:見た目のスタイル崩れの原因になることがある(pタグの閉じ忘れでh1/h3のサイズが逆転した事例あり)

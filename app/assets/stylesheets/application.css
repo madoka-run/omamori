@@ -25,6 +25,7 @@ body{
     font-family: "Hiragino Maru Gothic ProN", "Hiragino Maru Gothic Pro", "BIZ UDGothic", sans-serif;
 }
 
+
 .container {
     width: 90%;
     max-width: 480px;
@@ -225,4 +226,8 @@ th, td {
     border-bottom: 1px solid #f0e0e3;
     white-space: nowrap;
     font-size: 0.9rem;
+}
+
+.grounding-detail {
+    text-align: left;
 }
