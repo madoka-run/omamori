@@ -11,6 +11,10 @@
   </head>
 
 <body>
+    <% if @active_anxiety_log %>
+        <div class="active-log-badge">不安記録中</div>
+    <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
@@ -18,5 +22,6 @@
         <%= yield %>
     </div>
 </body>
+
 
 </html>

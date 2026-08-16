@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 before_action :set_cache_headers
+before_action :set_active_anxiety_log
 
     def after_sign_in_path_for(resource)
         if params[:anxiety_log_id].present?
@@ -17,5 +18,13 @@ before_action :set_cache_headers
 
     def current_device_token
         cookies.permanent[:device_token] ||= SecureRandom.uuid
+    end
+
+    def set_active_anxiety_log
+        @active_anxiety_log = if user_signed_in?
+            current_user.anxiety_logs.find_by(ended_at: nil)
+        else
+            AnxietyLog.find_by(user_id: nil, device_token: current_device_token, ended_at: nil)
+        end
     end
 end
