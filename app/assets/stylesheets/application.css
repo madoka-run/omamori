@@ -194,19 +194,6 @@ button[hidden] {
     margin-bottom: 8px;
 }
 
-.breathing-nav a {
-    background: none;
-    color: #7cb342;
-    font-size: 0.85rem;
-    padding: 4px 4px;
-    text-decoration: underline;
-}
-
-.breathing-nav a:hover {
-    background: none;
-    color: #558b2f;
-}
-
 .table-wrapper {
     overflow-x: auto;
 }
@@ -235,4 +222,30 @@ th, td {
 
 .grounding-detail {
     text-align: left;
+}
+
+.text-link {
+    display: inline-block;
+    background: none;
+    color: #7cb342;
+    font-size: 0.85rem;
+    padding: 4px 4px;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.text-link:hover {
+    background: none;
+    color: #558b2f;
+}
+
+[data-controller="elapsed-timer"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+[data-controller="elapsed-timer"] p {
+    margin: 0;
 }

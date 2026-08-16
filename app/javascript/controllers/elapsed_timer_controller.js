@@ -1,7 +1,7 @@
 import { Controller} from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["minutes", "seconds", "display"]
+    static targets = ["hoursWrapper", "hours", "minutes", "seconds", "display"]
     static values = { startedAt: String }
 
     connect() {
@@ -19,11 +19,14 @@ export default class extends Controller {
         const startedAt = new Date(this.startedAtValue)
         const now = new Date()
         const elapsedSeconds = Math.floor((now - startedAt) / 1000)
-        const minutes = Math.floor(elapsedSeconds / 60)
+        const hours = Math.floor(elapsedSeconds / 3600)
+        const minutes = Math.floor((elapsedSeconds % 3600) / 60)
         const seconds = elapsedSeconds % 60
 
+        this.hoursTarget.textContent = hours
         this.minutesTarget.textContent = minutes
         this.secondsTarget.textContent = seconds
+        this.hoursWrapperTarget.hidden = hours === 0
     }
 
     toggle() {
