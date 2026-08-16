@@ -3,11 +3,13 @@
 
     <div class="card">
         <button data-action="click->card#toggle">TIPP(体温を下げる)</button>
-        <p data-card-target="detail" hidden>
-            冷たい水で手を洗う、またはぬるめのシャワーを浴びる
-            <br>
+         <div data-card-target="detail" hidden>   
+            <ul>
+                <li>冷たい水で手を洗う</li>
+                <li>またはぬるめのシャワーを浴びる</li>
+            </ul>
             <button data-action="click->card#closeAll" class="text-link">閉じる</button>
-        </p>
+        </div>    
     </div>
 
     <div class="card">
@@ -29,7 +31,7 @@
         <button data-action="click->card#toggle">よりそいホットラインに電話</button>
         <p data-card-target="detail" hidden> 
             よりそいホットラインに電話する（外部団体）<br>
-            <%= link_to "0120-279-338", "tel:0120279338" %>（２４時間・秘密厳守）
+            <%= link_to "0120-279-338", "tel:0120279338" %>（24時間・秘密厳守）
             <br>
             <button data-action="click->card#closeAll" class="text-link">閉じる</button>
         </p>
