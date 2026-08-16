@@ -48,7 +48,7 @@ h1 {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    justify-content: center
+    justify-content: center;
 }
 
 .anxiety-buttons form button {
@@ -57,11 +57,17 @@ h1 {
     font-size: 20px;
     border-radius: 50%;
     border: none;
-    background-color: #e6ffed;
-    color: rgb(0, 0, 0);
-    cursor:pointer;
-
+    color: #33402f;
+    cursor: pointer;
+    font-weight: bold;
 }
+
+.anxiety-level-1 { background-color: #edf7ec; }
+.anxiety-level-2 { background-color: #dcefda; }
+.anxiety-level-3 { background-color: #c8e6c4; }
+.anxiety-level-4 { background-color: #b0d9ac; }
+.anxiety-level-5 { background-color: #97cb91; }
+
 
 [data-breathing-target="flowers"]{
     white-space: pre-line;
