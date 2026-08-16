@@ -3,6 +3,12 @@ class AnxietyLogsController < ApplicationController
   end
 
   def create
+    if user_signed_in?
+      current_user.anxiety_logs.where(ended_at: nil).destroy_all
+    else
+      AnxietyLog.where(user_id: nil, device_token: current_device_token, ended_at: nil).destroy_all
+    end
+
     anxiety_log = AnxietyLog.create(anxiety_level: params[:anxiety_level], started_at: Time.current, user_id: current_user&.id, device_token: current_device_token)
     if params[:next] == "suggestions"
       redirect_to suggestions_anxiety_log_path(anxiety_log)
@@ -10,6 +16,7 @@ class AnxietyLogsController < ApplicationController
       redirect_to breathing_path("calming", anxiety_log_id: anxiety_log.id)
     end
   end
+
 
   def update
     @anxiety_log = AnxietyLog.find(params[:id])
@@ -41,6 +48,11 @@ class AnxietyLogsController < ApplicationController
   def destroy
     @anxiety_log = AnxietyLog.find(params[:id])
     @anxiety_log.destroy
-    redirect_to anxiety_logs_path
+    if params[:return_to] == "top"
+      redirect_to root_path
+    else
+      redirect_to anxiety_logs_path
+    end
   end
+
 end

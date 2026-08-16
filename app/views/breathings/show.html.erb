@@ -47,4 +47,5 @@
 <div class="breathing-nav">
   <%= link_to "トップに戻る", root_path(anxiety_log_id: params[:anxiety_log_id]) %>
   <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
+  <%= button_to "今の記録をやめる", anxiety_log_path(@anxiety_log), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？(元に戻せません)" } %>
 </div>

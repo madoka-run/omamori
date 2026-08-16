@@ -2,16 +2,17 @@
 <%= image_tag "omamoribag.png", class: "omamori-bag" %>
 
 <p>不安が来ても、いつか終わります。</p>
-<p>落ち着くまでの記録を始めますか？</p>
-
- <%= link_to "落ち着く呼吸法をはじめる", new_anxiety_log_path %>
- <% if params[:anxiety_log_id].present? %>
-     <br>
-     <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
+<%= link_to "落ち着く呼吸法をはじめる", new_anxiety_log_path %>
+<% if params[:anxiety_log_id].present? %>
+    <br>
+    <%= link_to "他の方法を試す", suggestions_anxiety_log_path(params[:anxiety_log_id]) %>
+    <br>
+    <%= button_to "今の記録をやめる", anxiety_log_path(params[:anxiety_log_id]), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？" } %>
 <% else %>
     <br>
     <%= link_to "他の方法から始める", new_anxiety_log_path(next: "suggestions") %>
- <% end %>
+<% end %>
+
 <br>
 <%= link_to "過去の記録を見る", anxiety_logs_path %>
 <br>
@@ -23,3 +24,4 @@
     <br>
     <%= link_to "ログイン", new_user_session_path %>
 <% end %>
+
