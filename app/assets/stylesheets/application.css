@@ -232,3 +232,85 @@ th, td {
     color: #2f5d3a;
 }
 
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    flex: 1;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.card button:hover {
+    background-color: #f5f5f5;
+}
+
+
+
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #ffffff;
+    color: #2f5d3a;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-weight: bold;
+    text-decoration: none;
+    min-height: 120px;
+}
+
+.card-link:hover {
+    background: #f5f5f5;
+}
+
+[data-card-target="backdrop"] {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+[data-card-target="detail"] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    width: 85%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
