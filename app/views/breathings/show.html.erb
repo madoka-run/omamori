@@ -1,12 +1,8 @@
-
-
 <h1><%= @breathing[:name] %></h1>
 <% total_seconds = (@breathing[:inhale] + @breathing[:hold] + @breathing[:exhale]) * @breathing[:cycles] %>
 <% total_minutes = total_seconds / 60 %>
 
-  <button data-action="click->elapsed-timer#toggle" class="text-link">⏰隠す/表示</button>
-</div>
-
+<p><%= total_minutes %>分間、落ち着く呼吸を行います</p>
 
 <div data-controller="breathing"
      data-breathing-inhale-value="<%= @breathing[:inhale] %>"
@@ -46,4 +42,3 @@
   <%= button_to "記録を終了する", anxiety_log_path(@anxiety_log), method: :patch, params: { status: "resolved" }, data: { turbo_confirm: "本当に終了しますか？" }, class: "text-link" %>
   <%= button_to "今の記録をやめる", anxiety_log_path(@anxiety_log), method: :delete, params: { return_to: "top" }, data: { turbo_confirm: "今の記録を削除しますか？(元に戻せません)" }, class: "text-link" %>
 </div>
-

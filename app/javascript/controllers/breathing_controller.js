@@ -35,9 +35,10 @@ export default class extends Controller {
         this.startPhase()
     }
 
-        startPhase() {
+    startPhase() {
         const phase = this.phases[this.currentPhaseIndex]
         this.phaseTarget.innerHTML = `${phase.icon} <span class="phase-number">${phase.seconds}</span>${phase.label}`
+        this.phaseTarget.className = `breathing-phase-${phase.type}`
 
         if (phase.type === "inhale" || phase.type === "exhale") {
             const staggerDuration = phase.seconds / this.leafTargets.length
